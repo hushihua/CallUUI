@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PopoEmoticons>
+    <Catalog Title="default">
+        <Emoticon File="Emoji_001.png" ID="emoticon_emoji_01"  Tag="[微笑]" Set="001,002" />
+        <Emoticon File="Emoji_002.png" ID="emoticon_emoji_0"   Tag="[微微笑]" Set="001,002" />
+        <Emoticon File="Emoji_003.png" ID="emoticon_emoji_02"  Tag="[开心]" Set="003,004" />
+        <Emoticon File="Emoji_004.png" ID="emoticon_emoji_03"  Tag="[中二笑]" Set="003,004" />
+        <Emoticon File="Emoji_005.png" ID="emoticon_emoji_03"  Tag="[眯眼笑]" Set="005,006" />
+        <Emoticon File="Emoji_006.png" ID="emoticon_emoji_03"  Tag="[大笑]" Set="005,006" />
+        <Emoticon File="Emoji_007.png" ID="emoticon_emoji_03"  Tag="[天使]" />
+        <Emoticon File="Emoji_008.png" ID="emoticon_emoji_03"  Tag="[鬼脸]" />
+        <Emoticon File="Emoji_009.png" ID="emoticon_emoji_03"  Tag="[笑哭]" />
+        <Emoticon File="Emoji_010.png" ID="emoticon_emoji_03" Tag="[嘻嘻]" />
+        <Emoticon File="Emoji_011.png" ID="emoticon_emoji_03" Tag="[捂脸]" />
+        <Emoticon File="Emoji_012.png" ID="emoticon_emoji_03" Tag="[愉快]" />
+        <Emoticon File="Emoji_013.png" ID="emoticon_emoji_03" Tag="[喜欢]" Set="013,014" />
+        <Emoticon File="Emoji_014.png" ID="emoticon_emoji_03" Tag="[飞吻]" Set="013,014" />
+        <Emoticon File="Emoji_015.png" ID="emoticon_emoji_03" Tag="[奋斗]" />
+        <Emoticon File="Emoji_016.png" ID="emoticon_emoji_03" Tag="[懵]" />
+        <Emoticon File="Emoji_017.png" ID="emoticon_emoji_03" Tag="[琢磨]" />
+        <Emoticon File="Emoji_018.png" ID="emoticon_emoji_03" Tag="[白眼]" />
+        <Emoticon File="Emoji_019.png" ID="emoticon_emoji_03" Tag="[难过]" Set="019,020" />
+        <Emoticon File="Emoji_020.png" ID="emoticon_emoji_03" Tag="[悲伤]" Set="019,020" />
+        <Emoticon File="Emoji_021.png" ID="emoticon_emoji_03" Tag="[委屈]" />
+        <Emoticon File="Emoji_022.png" ID="emoticon_emoji_03" Tag="[大哭]" Set="022,023" />
+        <Emoticon File="Emoji_023.png" ID="emoticon_emoji_03" Tag="[流泪]" Set="022,023" />
+        <Emoticon File="Emoji_024.png" ID="emoticon_emoji_03" Tag="[睡觉]" />
+        <Emoticon File="Emoji_025.png" ID="emoticon_emoji_03" Tag="[害怕]" Set="025,026" />
+        <Emoticon File="Emoji_026.png" ID="emoticon_emoji_03" Tag="[惊慌]" Set="025,026" />
+        <Emoticon File="Emoji_027.png" ID="emoticon_emoji_03" Tag="[惊讶]" Set="027,028" />
+        <Emoticon File="Emoji_028.png" ID="emoticon_emoji_03" Tag="[惊恐]" Set="027,028" />
+        <Emoticon File="Emoji_029.png" ID="emoticon_emoji_03" Tag="[衰]" />
+        <Emoticon File="Emoji_030.png" ID="emoticon_emoji_03" Tag="[愤怒]" />
+        <Emoticon File="Emoji_031.png" ID="emoticon_emoji_03" Tag="[拜年]" />
+        <Emoticon File="Emoji_032.png" ID="emoticon_emoji_03" Tag="[再见]" />
+        <Emoticon File="Emoji_033.png" ID="emoticon_emoji_03" Tag="[书呆]" />
+        <Emoticon File="Emoji_034.png" ID="emoticon_emoji_03" Tag="[超酷]" />
+        <Emoticon File="Emoji_035.png" ID="emoticon_emoji_03" Tag="[嘘]" Set="035,036" />
+        <Emoticon File="Emoji_036.png" ID="emoticon_emoji_03" Tag="[闭嘴]" Set="035,036" />
+        <Emoticon File="Emoji_037.png" ID="emoticon_emoji_03" Tag="[流汗]" Set="037,038" />
+        <Emoticon File="Emoji_038.png" ID="emoticon_emoji_03" Tag="[大汗]" Set="037,038" />
+        <Emoticon File="Emoji_039.png" ID="emoticon_emoji_03" Tag="[擦汗]" />
+        <Emoticon File="Emoji_040.png" ID="emoticon_emoji_03" Tag="[暗中观察]" />
+        <Emoticon File="Emoji_041.png" ID="emoticon_emoji_03" Tag="[问号]" />
+        <Emoticon File="Emoji_042.png" ID="emoticon_emoji_03" Tag="[励志]" />
+        <Emoticon File="Emoji_128.png" ID="emoticon_emoji_03" Tag="[傲慢]" />
+        <Emoticon File="Emoji_129.png" ID="emoticon_emoji_03" Tag="[发呆]" />
+        <Emoticon File="Emoji_130.png" ID="emoticon_emoji_03" Tag="[发狂]" />
+        <Emoticon File="Emoji_131.png" ID="emoticon_emoji_03" Tag="[尴尬]" />
+        <Emoticon File="Emoji_132.png" ID="emoticon_emoji_03" Tag="[哈欠]" />
+        <Emoticon File="Emoji_133.png" ID="emoticon_emoji_03" Tag="[害羞]" />
+        <Emoticon File="Emoji_134.png" ID="emoticon_emoji_03" Tag="[欢呼]" />
+        <Emoticon File="Emoji_135.png" ID="emoticon_emoji_03" Tag="[可怜]" />
+        <Emoticon File="Emoji_136.png" ID="emoticon_emoji_03" Tag="[抠鼻]" />
+        <Emoticon File="Emoji_137.png" ID="emoticon_emoji_03" Tag="[困]" />
+        <Emoticon File="Emoji_138.png" ID="emoticon_emoji_03" Tag="[糗大了]" />
+        <Emoticon File="Emoji_139.png" ID="emoticon_emoji_03" Tag="[偷笑]" />
+        <Emoticon File="Emoji_140.png" ID="emoticon_emoji_03" Tag="[阴险]" />
+        <Emoticon File="Emoji_141.png" ID="emoticon_emoji_03" Tag="[晕]" />
+        <Emoticon File="Emoji_142.png" ID="emoticon_emoji_03" Tag="[咒骂]" />
+        <Emoticon File="Emoji_044.png" ID="emoticon_emoji_03" Tag="[右手棒]" Set="044,043" />
+        <Emoticon File="Emoji_043.png" ID="emoticon_emoji_03" Tag="[赞]" Set="044,043" />
+        <Emoticon File="Emoji_046.png" ID="emoticon_emoji_03" Tag="[胜 利]" Set="046,045" />
+        <Emoticon File="Emoji_045.png" ID="emoticon_emoji_03" Tag="[耶]" Set="046,045" />
+        <Emoticon File="Emoji_047.png" ID="emoticon_emoji_03" Tag="[OK]" Set="047,048" />
+        <Emoticon File="Emoji_048.png" ID="emoticon_emoji_03" Tag="[O K]" Set="047,048" />
+        <Emoticon File="Emoji_050.png" ID="emoticon_emoji_03" Tag="[喝 倒 彩]" Set="050,049" />
+        <Emoticon File="Emoji_049.png" ID="emoticon_emoji_03" Tag="[喝倒彩]" Set="050,049" />
+        <Emoticon File="Emoji_051.png" ID="emoticon_emoji_03" Tag="[握手]" Set="051,052" />
+        <Emoticon File="Emoji_052.png" ID="emoticon_emoji_03" Tag="[作揖]" Set="051,052" />
+        <Emoticon File="Emoji_054.png" ID="emoticon_emoji_03" Tag="[拳 头]" Set="054,053" />
+        <Emoticon File="Emoji_053.png" ID="emoticon_emoji_03" Tag="[拳头]" Set="054,053" />
+        <Emoticon File="Emoji_056.png" ID="emoticon_emoji_03" Tag="[勾 引]" Set="056,055" />
+        <Emoticon File="Emoji_055.png" ID="emoticon_emoji_03" Tag="[勾引]" Set="056,055" />
+        <Emoticon File="Emoji_058.png" ID="emoticon_emoji_03" Tag="[6 _ 1]" Set="058,057" />
+        <Emoticon File="Emoji_057.png" ID="emoticon_emoji_03" Tag="[6_1]" Set="058,057" />
+        <Emoticon File="Emoji_060.png" ID="emoticon_emoji_03" Tag="[加 油]" Set="060,059" />
+        <Emoticon File="Emoji_059.png" ID="emoticon_emoji_03" Tag="[加油]" Set="060,059" />
+        <Emoticon File="Emoji_126.png" ID="emoticon_emoji_03" Tag="[比心]" Set="126,127" />
+        <Emoticon File="Emoji_127.png" ID="emoticon_emoji_03" Tag="[比 心]" Set="126,127" />
+        <Emoticon File="Emoji_061.png" ID="emoticon_emoji_03" Tag="[抱歉]" />
+        <Emoticon File="Emoji_062.png" ID="emoticon_emoji_03" Tag="[安慰]" />
+        <Emoticon File="Emoji_063.png" ID="emoticon_emoji_03" Tag="[老罗]" />
+        <Emoticon File="Emoji_064.png" ID="emoticon_emoji_03" Tag="[猴]" />
+        <Emoticon File="Emoji_065.png" ID="emoticon_emoji_03" Tag="[猫]" />
+        <Emoticon File="Emoji_066.png" ID="emoticon_emoji_03" Tag="[熊猫]" />
+        <Emoticon File="Emoji_067.png" ID="emoticon_emoji_03" Tag="[狗]" />
+        <Emoticon File="Emoji_068.png" ID="emoticon_emoji_03" Tag="[鸡]" />
+        <Emoticon File="Emoji_069.png" ID="emoticon_emoji_03" Tag="[青蛙]" />
+        <Emoticon File="Emoji_070.png" ID="emoticon_emoji_03" Tag="[外星人]" />
+        <Emoticon File="Emoji_071.png" ID="emoticon_emoji_03" Tag="[猪]" />
+        <Emoticon File="Emoji_072.png" ID="emoticon_emoji_03" Tag="[鱼]" />
+        <Emoticon File="Emoji_073.png" ID="emoticon_emoji_03" Tag="[中国]" />
+        <Emoticon File="Emoji_074.png" ID="emoticon_emoji_03" Tag="[香港]" />
+        <Emoticon File="Emoji_075.png" ID="emoticon_emoji_03" Tag="[美国]" />
+        <Emoticon File="Emoji_076.png" ID="emoticon_emoji_03" Tag="[日本]" />
+        <Emoticon File="Emoji_077.png" ID="emoticon_emoji_03" Tag="[韩国]" />
+        <Emoticon File="Emoji_078.png" ID="emoticon_emoji_03" Tag="[英国]" />
+        <Emoticon File="Emoji_079.png" ID="emoticon_emoji_03" Tag="[大便]" />
+        <Emoticon File="Emoji_080.png" ID="emoticon_emoji_03" Tag="[苹果]" />
+        <Emoticon File="Emoji_081.png" ID="emoticon_emoji_03" Tag="[树叶]" />
+        <Emoticon File="Emoji_082.png" ID="emoticon_emoji_03" Tag="[王冠]" />
+        <Emoticon File="Emoji_083.png" ID="emoticon_emoji_03" Tag="[音乐]" />
+        <Emoticon File="Emoji_084.png" ID="emoticon_emoji_03" Tag="[星星]" />
+        <Emoticon File="Emoji_085.png" ID="emoticon_emoji_03" Tag="[闪电]" />
+        <Emoticon File="Emoji_086.png" ID="emoticon_emoji_03" Tag="[金牌]" />
+        <Emoticon File="Emoji_087.png" ID="emoticon_emoji_03" Tag="[雪花]" />
+        <Emoticon File="Emoji_088.png" ID="emoticon_emoji_03" Tag="[气球]" />
+        <Emoticon File="Emoji_089.png" ID="emoticon_emoji_03" Tag="[月亮]" />
+        <Emoticon File="Emoji_090.png" ID="emoticon_emoji_03" Tag="[百分]" />
+        <Emoticon File="Emoji_091.png" ID="emoticon_emoji_03" Tag="[云]" />
+        <Emoticon File="Emoji_092.png" ID="emoticon_emoji_03" Tag="[叹号]" />
+        <Emoticon File="Emoji_093.png" ID="emoticon_emoji_03" Tag="[足球]" />
+        <Emoticon File="Emoji_094.png" ID="emoticon_emoji_03" Tag="[篮球]" />
+        <Emoticon File="Emoji_095.png" ID="emoticon_emoji_03" Tag="[错]" />
+        <Emoticon File="Emoji_096.png" ID="emoticon_emoji_03" Tag="[缎带]" />
+        <Emoticon File="Emoji_097.png" ID="emoticon_emoji_03" Tag="[爆炸]" />
+        <Emoticon File="Emoji_098.png" ID="emoticon_emoji_03" Tag="[红旗]" />
+        <Emoticon File="Emoji_099.png" ID="emoticon_emoji_03" Tag="[飞快]" />
+        <Emoticon File="Emoji_100.png" ID="emoticon_emoji_03" Tag="[太阳]" />
+        <Emoticon File="Emoji_101.png" ID="emoticon_emoji_03" Tag="[水滴]" />
+        <Emoticon File="Emoji_102.png" ID="emoticon_emoji_03" Tag="[警告]" />
+        <Emoticon File="Emoji_103.png" ID="emoticon_emoji_03" Tag="[情书]" />
+        <Emoticon File="Emoji_104.png" ID="emoticon_emoji_03" Tag="[相机]" />
+        <Emoticon File="Emoji_105.png" ID="emoticon_emoji_03" Tag="[钱]" />
+        <Emoticon File="Emoji_106.png" ID="emoticon_emoji_03" Tag="[眼睛]" />
+        <Emoticon File="Emoji_107.png" ID="emoticon_emoji_03" Tag="[中国心]" />
+        <Emoticon File="Emoji_108.png" ID="emoticon_emoji_03" Tag="[心动]" />
+        <Emoticon File="Emoji_109.png" ID="emoticon_emoji_03" Tag="[票]" />
+        <Emoticon File="Emoji_110.png" ID="emoticon_emoji_03" Tag="[啤酒]" />
+        <Emoticon File="Emoji_111.png" ID="emoticon_emoji_03" Tag="[麻将]" />
+        <Emoticon File="Emoji_112.png" ID="emoticon_emoji_03" Tag="[扑克]" />
+        <Emoticon File="Emoji_113.png" ID="emoticon_emoji_03" Tag="[游戏]" />
+        <Emoticon File="Emoji_114.png" ID="emoticon_emoji_03" Tag="[手机]" />
+        <Emoticon File="Emoji_115.png" ID="emoticon_emoji_03" Tag="[嘴唇]" />
+        <Emoticon File="Emoji_116.png" ID="emoticon_emoji_03" Tag="[飞机]" />
+        <Emoticon File="Emoji_117.png" ID="emoticon_emoji_03" Tag="[火车]" />
+        <Emoticon File="Emoji_118.png" ID="emoticon_emoji_03" Tag="[玫瑰]" />
+        <Emoticon File="Emoji_119.png" ID="emoticon_emoji_03" Tag="[花]" />
+        <Emoticon File="Emoji_120.png" ID="emoticon_emoji_03" Tag="[药丸]" />
+        <Emoticon File="Emoji_121.png" ID="emoticon_emoji_03" Tag="[骷髅]" />
+        <Emoticon File="Emoji_122.png" ID="emoticon_emoji_03" Tag="[耸肩男]" Set="122,123" />
+        <Emoticon File="Emoji_123.png" ID="emoticon_emoji_03" Tag="[耸肩女]" Set="122,123" />
+        <Emoticon File="Emoji_124.png" ID="emoticon_emoji_03" Tag="[捂脸男]" Set="124,125" />
+        <Emoticon File="Emoji_125.png" ID="emoticon_emoji_03" Tag="[捂脸女]" Set="124,125" />
+
+    </Catalog>
+</PopoEmoticons>

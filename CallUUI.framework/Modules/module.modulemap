@@ -1,0 +1,4 @@
+framework module CallUUI {
+  header "UI-Bridging-Header.h"
+  requires objc
+}
