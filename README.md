@@ -32,6 +32,7 @@ CallUApi，CallUUI用swift语言进行原生开发，关于Objective-C桥接的�
 
 2. 在 Podfile 中增加以下内容。
 ```
+ pod 'CallUApi'
  pod 'AWSS3'
  pod 'SDWebImage'
  pod 'SDWebImage/GIF'
