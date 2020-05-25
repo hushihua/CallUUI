@@ -1,25 +1,12 @@
-# 乐马IM Api (无UI)
+# CallU IM UI使用入门
 
 [![CI Status](https://img.shields.io/travis/adam/LMPush.svg?style=flat)](https://travis-ci.org/adam/LMPush)
 [![Version](https://img.shields.io/cocoapods/v/LMPush.svg?style=flat)](https://cocoapods.org/pods/LMPush)
 [![License](https://img.shields.io/cocoapods/l/LMPush.svg?style=flat)](https://cocoapods.org/pods/LMPush)
 [![Platform](https://img.shields.io/cocoapods/p/LMPush.svg?style=flat)](https://cocoapods.org/pods/LMPush)
 
-# 一：乐马IM Api使用入门
 
-开发者的应用“乐马推送SDK”、“乐马IM Api SDK”或“乐马 IM UI SDK”服务，需要经过如下几个简单的步骤：
-
-## 第 1 步：按照流程，接入“乐马推送SDK”
-具体流程请 [ 点击这里 ](https://github.com/hushihua/LMPush/)
-
-## 第 2 步：开发环境要求
-
-Xcode 10 及以上
-iOS 8.0 及以上
-
-   
-
-#  二：集成说明
+#  一：集成说明
 
 ## CocoaPods 集成（推荐）
 
@@ -27,9 +14,7 @@ iOS 8.0 及以上
 
 在 Podfile 中增加以下内容。
 ```
- pod 'LMPush'
- pod 'LIMApi'
- pod 'AWSS3'
+ pod 'CallUUI'
 ```
 执行以下命令，安装 LMPush。
 ```
@@ -42,290 +27,136 @@ iOS 8.0 及以上
  
 ## 手动集成（不推荐）
 
-1. 在 Framework Search Path 中加上 LMPush，LIMApi 的文件路径，手动地将 LMPush.framework，LIMApi.framework 添加到您的工程"Frameworks and Libraries"中。
-LMPush，LIMApi用swift语言进行原生开发，关于Objective-C桥接的相关操作，请自己Baidu查找。
+1. 在 Framework Search Path 中加上 CallUApi，CallUUI 的文件路径，手动地将 CallUApi.framework，CallUUI.framework 添加到您的工程"Frameworks and Libraries"中。
+CallUApi，CallUUI用swift语言进行原生开发，关于Objective-C桥接的相关操作，请自己Baidu查找。
 
 2. 在 Podfile 中增加以下内容。
 ```
  pod 'AWSS3'
+ pod 'SDWebImage'
+ pod 'SDWebImage/GIF'
+ pod 'IQKeyboardManager'
+ pod 'TSVoiceConverter'
+ pod 'MJRefresh'
+ pod 'MBProgressHUD'
+ pod 'SnapKit'
+ pod 'SQLite.swift'
+ pod 'GoogleMaps'
+ pod 'GooglePlaces'
+ pod 'GooglePlacePicker'
 ```
   
+# 二：API相关说明
 
-# 三：在代码中引入
-
-## 1.按照“乐马推送SDK”的“代码中引入”流程，接入相关代码
-
-具体流程请 [点击这里](https://github.com/hushihua/LMPush/)
-
-
-
-  
-# 四：API相关说明
-
-## 1. LIMManager
-主要负责 im 服务使用前的注册，登录等用户相关信息的操作及前后台事件处理处im推送中的相关事件进行处理并分发的处理器。
-  
- - 1.1 用户注册
-注册操作一般由服务端逻辑进行实现，代码如下：
+## 1. 在AppDelegate中初始化
 ```swift
-LIMManager.getInstance().login(userName: String, password: String) { (response:LMResponse<LIMUserInfo>) in
-    if response.isSuccess == true{
-        if let info:LIMUserInfo = response.data{
-            //login success
-        }
-    }
+
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    
+    UIManager.getInstance().initSdk()                                                       //init sdk
+    UIManager.getInstance().registerNotification(application: application, delegate: self)  //注册推送, 也可以不调用，自己代码编写
+
+    return true
 }
+
 ```
-  
+- 1.1 推送功能接入
+如果你还需要接入推送功能，在下面的回调方法中要进行方法的注入，当APNS推送在接收到im相关消息时，会自动处理：
+
+```swift
+
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    UIManager.getInstance().application(application, didRegisterForRemoteNotificationsWithDeviceToken:deviceToken)
+}
+
+@available(iOS 10.0, *)
+func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void){
+    UIManager.getInstance().userNotificationCenter(center, willPresent:notification, withCompletionHandler:completionHandler)
+}
+
+@available(iOS 10.0, *)
+func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void){
+    UIManager.getInstance().userNotificationCenter(center, didReceive:response, withCompletionHandler:completionHandler)
+    completionHandler()
+}
+
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    UIManager.getInstance().application(application, didReceiveRemoteNotification:userInfo, fetchCompletionHandler:completionHandler)
+}
+
+```
+
 - 1.2 用户登录
-用户登录操作成功后，才能对后继的业务进行操作，代码如下：
-```swift
-LIMManager.getInstance().login(userName: String, password: String) { (response:LMResponse<LIMUserInfo>) in
-    if response.isSuccess == true{
-        if let info:LIMUserInfo = response.data{
-            //login success
-        }
-    }
-}
+IM 平台的用登录操作一般由服务端进行调用，把IM 平台返回的信息在你当前系统的登陆操作完成后，一同返回到app。当然，我们也提供了app端的登录操作的封装代码以供使用 ：
+
+ ```swift
+ 
+ CUUserManager.getInstance().login(userName: "你的用户名", password: “你的密码”) { [weak self] (result: CUResponse<CULoginResponse>) in
+
+ }
+ 
+ ```
+ 
+ 当取得IM平台用户的登录信息后，要对 UI Sdk中的登录信息进行设置 
+ 
+ ```swift
+ 
+ UIManager.getInstance().setLoginResponse(response)
+ 
 ```
+ 
+ PS:  UI Sdk 中不提供 “用记注册” 功能，注册一般由服务端完成，比如在进行自有系统注册流程过程中，同时对 IM 后台服务的注册接口进行调用，完成注册流程。
   
- - 1.3 用户资料更新，头像修改， 修改密码
-该操作要在“用户登录”操作成功后才能使用（以下的函数中不再一一说明），代码如下：
-```swift
-
-// 更新用户资料
-LIMManager.getInstance().updateUserInfo(info: LIMUserInfo) { (response:LMResponse<LIMUserInfo>) in
-    if response.isSuccess == true{
-        if let info:LIMUserInfo = response.data{
-            //success
-        }
-    }
-}
-
-/**
- *  更新用户头像
- *  avatar:  图像上传成功后返回的 “文件名称” （非完整的url路径）
- */
-LIMManager.getInstance().updateAvatar(avatar: String) { (response:LMResponse<LIMUserInfo>) in
-    if response.isSuccess == true{
-        if let info:LIMUserInfo = response.data{
-            //success
-        }
-    }
-}
-
-//修改密码
-LIMManager.getInstance().updatePassword(oldPassword:String, newPassword:String) { (response:LMResponse<LIMUserInfo>) in
-    if response.isSuccess == true{
-        if let info:LIMUserInfo = response.data{
-            //success
-        }
-    }
-}
-
-```
+  - 1.3 设置 IM Sdk 通知回调方法：
+  当你的app中，需要接收 IM相关的apns推送，要先完成 1.1中的相关代码调用，如果不需要，可以忽略如下内容。
+  在 IM Sdk中，要处理两种推送消息的处理逻辑： “收到新的im消息”， “有新的好友请求”。 
   
-- 1.4 退出登录
-退出登录成功执行后，推送服务关闭，IM系统中的其它服务要进行重新进行登录操作后，才能成功执行。
-```swift
-LIMManager.getInstance().logout { (response:LMResponse<Bool>) in
-    if response.isSuccess == true{
-        //success
-    }
-}
-```
-
-
-## 2. 会话管理器 LIMSessionManager
-- 获取会话列表
-```swift
-LIMSessionManager.getInstance().loadSessionList { (LMResponse<[LIMSessionInfo]>) in
-    if response.isSuccess == true, let list:[LIMSessionInfo] = response.data{
-        //success
-    }
-}
-```
-- 删除会话
-```swift
-IMSessionManager.getInstance().deleteSession(chatId: String) { (response:LMResponse<Bool>) in
-    if response.isSuccess == true, let re:Bool = response.data, re == true{
-        //success
-    }
-}
-```
-- 会话置顶设置
-```swift
-LIMSessionManager.getInstance().toppingSession(chatId: String, pin: String) { (response:LMResponse<Bool>) in
-    if response.isSuccess == true, let re:Bool = response.data, re == true{
-        //success
-    }
-}
-```
-- 会话免打扰设置
-```swift
-LIMSessionManager.getInstance().keepQuiet(chatId: String) { (response:LMResponse<Bool>) in
-    if response.isSuccess == true, let re:Bool = response.data, re == true{
-        //success
-    }
-}
-```
-- 取消会话免打扰设置
-```swift
-LIMSessionManager.getInstance().cancelQuiet(chatId: String) { (response:LMResponse<Bool>) in
-    if response.isSuccess == true, let re:Bool = response.data, re == true{
-        //success
-    }
-}
-```
-- 获取单个会话详情
-```swift
-LIMSessionManager.getInstance().loadSessionInfo(chatId: String) { (response:LMResponse<LIMSessionInfo>) in
-    if response.isSuccess == true, let info:LIMSessionInfo = response.data{
-        //success
-    }
-}
-```
-
-## 3. 好友关系管理器 LIMFriendshipManager
-- 获取好友列表
-```swift
-LIMFriendshipManager.getInstance().loadFriendList { (LMResponse<[LIMFriendInfo]>) in
-    if response.isSuccess == true, let list:[LIMFriendInfo] = response.data{
-        //success
-    }
-}
-```
-- 获取审核的好友列表
-```swift
-LIMFriendshipManager.getInstance().loadReviewList { (LMResponse<[LIMFriendInfo]>) in
-    if response.isSuccess == true, let list:[LIMFriendInfo] = response.data{
-        //success
-    }
-}
-```
-- 申请添加好友
-```swift
-LIMFriendshipManager.getInstance().requestFriends(friendName: String) { (LMResponse<Bool>) in
-    if response.isSuccess == true, let re:Bool = response.data, re == true{
-        //success
-    }
-}
-```
-- 审核好友
-```swift
-LIMFriendshipManager.getInstance().approveFriend(friendName: String, status: String) { (LMResponse<Bool>) in
-    if response.isSuccess == true, let re:Bool = response.data, re == true{
-        //success
-    }
-}
-```
-- 删除好友
-```swift
-LIMFriendshipManager.getInstance().deleteFriend(friends: [String]) { (LMResponse<Bool>) in
-    if response.isSuccess == true, let re:Bool = response.data, re == true{
-        //success
-    }
-}
-```
-- 添加好友 此接口直接添加成功，沒有審核。
-```swift
-LIMFriendshipManager.getInstance().addFriend(friends: [String]) { (LMResponse<Bool>) in
-    if response.isSuccess == true, let re:Bool = response.data, re == true{
-        //success
-    }
-}
-```
-## 4. 群组管理器 LIMGroupManager
-- 创建群组
-```swift
-LIMGroupManager.getInstance().createGroup(title: String, avatar: String, users: [String]) { (response:LMResponse<LIMSessionInfo>) in
-    if response.isSuccess == true, let info:LIMSessionInfo = response.data{
-        //success
-    }
-}
-```
-- 邀请加入群组
-```swift
-LIMGroupManager.getInstance().invint(chatId: String, users: [String]) { (response:LMResponse<Bool>) in
-    if response.isSuccess == true, let re:Bool = response.data, re == true{
-        //success
-    }
-}
-```
-- 踢出群组
-```swift
-LIMGroupManager.getInstance().kick(chatId: String, users: [String]) { (response:LMResponse<Bool>) in
-    if response.isSuccess == true, let re:Bool = response.data, re == true{
-        //success
-    }
-}
-```
-- 退出群组
-```swift
-LIMGroupManager.getInstance().quit(chatId: String, masterUser: String) { (response:LMResponse<Bool>) in
-    if response.isSuccess == true, let re:Bool = response.data, re == true{
-        //success
-    }
-}
-```
-- 更新群组资料
-```swift
-LIMGroupManager.getInstance().updateInfo(chatId: String, title: String, avatar: String) { (response:LMResponse<LIMSessionInfo>) in
-    if response.isSuccess == true, let info:LIMSessionInfo = response.data{
-        //success
-    }
-}
-```
-
-## 5. 聊天管理器 LIMChatManager
-- 发送消息
-```swift
-LIMChatManager.getInstance().sendMessage(message: LIMMessageInfo) { (LMResponse<LIMMessageInfo>) in
-    if response.isSuccess == true, let info:LIMMessageInfo = response.data{
-        //success
-    }
-}
-```
-- 删除消息
-```swift
-LIMChatManager.getInstance().delete(messageIds: [String]) { (LMResponse<Bool>) in
-    if response.isSuccess == true, let info:LIMSessionInfo = response.data{
-        //success
-    }
-}
-```
-- 设置消息为已读
-```swift
-LIMChatManager.getInstance().markReaded(chatId: String, msgId: String, msgTime: String) { (LMResponse<Bool>) in
-    if response.isSuccess == true, let info:LIMSessionInfo = response.data{
-        //success
-    }
-}
-```
-- 检测消息版本，当消息列表，显示的消息是用本地缓存的时候，都需要检测一次
-```swift
-LIMChatManager.getInstance().checkVersion(chatId: String, ids: String) { (LMResponse<[LIMMessageInfo]>) in
-    if response.isSuccess == true, let list:[LIMMessageInfo] = response.data{
-        //success
-    }
-}
-```
-- 获取seq_id 之后的聊天记录
-```swift
-LIMChatManager.getInstance().loadSeqBelow(chatId: String, seq: Int, offset: Int, pageSize: Int) { (LMResponse<LIMMessageReponseInfo?>) in
-    if response.isSuccess == true, let info:LIMMessageReponseInfo = response.data{
-        //success
-    }
-}
-```
-- 获取聊天记录列表
-```swift
-LIMChatManager.getInstance().loadHistory(chatId: String, seq: Int, offset: Int, pageSize: Int) { (LMResponse<LIMMessageReponseInfo?>) in
-    if response.isSuccess == true, let info:LIMMessageReponseInfo = response.data{
-        //success
-    }
-}
-```
-
-
+   ```swift
+   
+   UIManager.getInstance().addNewMessageObserver(self, selector:#selector(onNewMessage(notification:)))
+   UIManager.getInstance().addNewFriendObserver(self, selector:#selector(onNewFriend(notification:)))
+   
+  ```
+  
+  相关处理代码可参考如下：
+  ```swift
+  
+  //apns点击通知 进入聊天页面
+  @objc func onNewMessage(notification: Notification){
+      if let chatId:String = notification.object as? String{
+          let controller:CUIIMViewController = CUIIMViewController.instanceIMController()
+          controller.chatId = chatId
+          self.navigationController?.pushViewController(controller, animated: true)
+      }
+  }
+  
+  //apns点击通知 进入好友请求列表
+  @objc func onNewFriend(notification:Notification){
+      let controller:CUIFriendRequestViewController = CUIFriendRequestViewController.instanceFriendRequestViewController()
+      self.navigationController?.pushViewController(controller, animated: true)
+  }
+  
+ ```
+  
+  ## 2. 创建会话列表界面
+  
+  - 代码的方式创建：
+  ```swift
+  
+  let viewController:CUISeeionsListViewController = CUISeeionsListViewController.CreateViewController()
+  
+ ````
+  为了方便自定义，会话列表界面没有设置title，所以可以把取得的controller的view，进行本了页面的填充
+  
+  -storyboard方式引入：
+  
+  
+  
+  ## 3. 打开聊天界面
+  
+  ```swift
+  
+  let controller:CUIIMViewController = CUIIMViewController.CreaetViewController()
+  
+ ```
 
